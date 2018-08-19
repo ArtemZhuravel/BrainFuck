@@ -22,6 +22,9 @@ public class BrainFuckCommand implements ActionCommand {
 
     @Override
     public String execute(String code) {
+        if(code == null && code.isEmpty()) {
+            return "";
+        }
         String result = "";
         //  We're iterating trough the commands and executing them
         for(int i = 0; i < code.length(); i++) {

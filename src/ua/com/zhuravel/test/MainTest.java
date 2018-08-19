@@ -8,11 +8,19 @@ import ua.com.zhuravel.command.factory.ActionFactory;
 public class MainTest {
 
     @Test
-    void mainTest() {
+    void brainFuckTest() {
         String code = "++++++++[>++++[>++>+++>+++>+<<<<-]>+>+>->>+[<]<-]>>.>---.+++++++..+++.>>.<-.<.+++.------.--------.>>+.>++.";
         ActionFactory factory = new ActionFactory();
         ActionCommand command = factory.defineCommand("brainfuck");
         String result = command.execute(code);
         Assertions.assertArrayEquals("Hello World!\n".toCharArray(), result.toCharArray());
+    }
+
+    @Test
+    void emptyTest() {
+        ActionFactory factory = new ActionFactory();
+        ActionCommand command = factory.defineCommand("");
+        String result = command.execute(null);
+        Assertions.assertArrayEquals("No language set".toCharArray(), result.toCharArray() );
     }
 }

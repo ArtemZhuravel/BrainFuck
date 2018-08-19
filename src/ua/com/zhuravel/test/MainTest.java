@@ -13,7 +13,6 @@ public class MainTest {
         ActionFactory factory = new ActionFactory();
         ActionCommand command = factory.defineCommand("brainfuck");
         String result = command.execute(code);
-//        Assertions.assertSame("Hello World!\n", result);
         Assertions.assertArrayEquals("Hello World!\n".toCharArray(), result.toCharArray());
     }
 }

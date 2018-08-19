@@ -1,12 +1,12 @@
-import java.util.Scanner;
+import ua.com.zhuravel.command.ActionCommand;
+import ua.com.zhuravel.command.factory.ActionFactory;
 
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println("Choose one of the following languages:\n1.NoCommand;\n2.BrainFuck\n");
-        Scanner scanner = new Scanner(System.in);
-        scanner.next();
         String code = "++++++++[>++++[>++>+++>+++>+<<<<-]>+>+>->>+[<]<-]>>.>---.+++++++..+++.>>.<-.<.+++.------.--------.>>+.>++.";
-
+        ActionFactory factory = new ActionFactory();
+        ActionCommand command = factory.defineCommand("brainfuck");
+        command.execute(code);
     }
 }

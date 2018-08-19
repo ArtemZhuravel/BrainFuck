@@ -21,8 +21,8 @@ public class BrainFuckCommand implements ActionCommand {
     private static Deque<Integer> indexesOfOpenBracket = new LinkedList<>();
 
     @Override
-    public void execute(String code) {
-
+    public String execute(String code) {
+        String result = "";
         //  We're iterating trough the commands and executing them
         for(int i = 0; i < code.length(); i++) {
             switch (code.charAt(i)) {
@@ -39,7 +39,7 @@ public class BrainFuckCommand implements ActionCommand {
                     minus();
                     break;
                 case '.':
-                    point();
+                    result += point();
                     break;
                 case '[':
                     //  while we're starting a loop we should be convinced
@@ -79,6 +79,7 @@ public class BrainFuckCommand implements ActionCommand {
                     break;
             }
         }
+        return result;
     }
 
     private static void more() {
@@ -97,8 +98,9 @@ public class BrainFuckCommand implements ActionCommand {
         array[count]--;
     }
 
-    private static void point() {
+    private static String point() {
         System.out.print(array[count]);
+        return String.valueOf(array[count]);
     }
 
     private static void openBracket(int i) {

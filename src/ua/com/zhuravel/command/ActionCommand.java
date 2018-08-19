@@ -13,5 +13,5 @@ public interface ActionCommand {
      *
      * @param   code  required resource of data
      */
-    void execute(String code);
+    String execute(String code);
 }
